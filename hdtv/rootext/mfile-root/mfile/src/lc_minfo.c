@@ -217,8 +217,8 @@ static void free_lci(MFILE *mat) {
       free(lci->poslentableptr);
     free(lci);
   }
-  else{
-    mat = (MFILE *)malloc(sizeof(*mat));
-    mat->filetype = MAT_INVALID;
-  }
+  // else{
+  //   mat = (MFILE *)malloc(sizeof(*mat));
+  //   mat->filetype = MAT_INVALID;
+  // }
 }
