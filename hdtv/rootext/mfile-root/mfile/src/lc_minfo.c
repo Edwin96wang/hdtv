@@ -218,7 +218,7 @@ static void free_lci(MFILE *mat) {
     free(lci);
   }
   else{
-    mat = (MFILE *)malloc(sizeof(MFILE));
+    mat = (MFILE *)malloc(sizeof(*mat));
     mat->filetype = MAT_INVALID;
   }
 }
