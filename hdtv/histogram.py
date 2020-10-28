@@ -38,7 +38,6 @@ from hdtv.cal import CalibrationFitter
 # Don't add created spectra to the ROOT directory
 ROOT.TH1.AddDirectory(ROOT.kFALSE)
 
-
 def HasPrimitiveBinning(hist):
     if hist.GetNbinsX() != (hist.GetXaxis().GetXmax() - hist.GetXaxis().GetXmin()):
         return False
@@ -408,7 +407,6 @@ class FileHistogram(Histogram):
 
     A spectrum that comes from a file in any of the formats supported by hdtv.
     """
-
     def __init__(self, fname, fmt=None, color=hdtv.color.default, cal=None):
         """
         Read a spectrum from file

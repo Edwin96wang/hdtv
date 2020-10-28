@@ -16,7 +16,7 @@ set(SOURCES
     mfile/src/converters.c
     mfile/src/disk_access.c
     mfile/src/getputint.c
-    mfile/src/gf2_getput.c
+    mfile/src/gf2_getput.cc
     mfile/src/gf2_minfo.c
     mfile/src/lc_c1.c
     mfile/src/lc_c2.c
@@ -28,7 +28,7 @@ set(SOURCES
     mfile/src/mat_types.c
     mfile/src/minfo.c
     mfile/src/mopen.c
-    mfile/src/oldmat_getput.c
+    mfile/src/oldmat_getput.cc
     mfile/src/oldmat_minfo.c
     mfile/src/shm_access.c
     mfile/src/shm_getput.c

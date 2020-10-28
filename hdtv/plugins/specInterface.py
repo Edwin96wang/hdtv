@@ -74,6 +74,7 @@ class SpecInterface(object):
                 ),
             )
 
+
     def _HotkeyShow(self, arg):
         """
         ShowObjects wrapper for use with Hotkey

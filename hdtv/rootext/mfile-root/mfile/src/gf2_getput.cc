@@ -30,7 +30,6 @@
  */
 
 #include <string.h>
-
 #include "getputint.h"
 #include "gf2_getput.h"
 #include "gf2_minfo.h"
@@ -38,19 +37,20 @@
 
 #define fpos(s) (36 + ((level * mat->lines + line) * mat->columns + col) * (s))
 
+
 /*----------------------------------------------------------------------*/
 
 /* Get from gf2 format file */
 int32_t gf2_get(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num) {
 
   if (mat->filetype == MAT_GF2)
-    return getle4(mat->ap, (int32_t *)buffer, fpos(4), num);
+    return getle4(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(4), num);
   else
-    return gethe4(mat->ap, (int32_t *)buffer, fpos(4), num);
+    return gethe4(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(4), num);
 }
 
 /* Put to gf2 format file */
 int32_t gf2_put(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num) {
 
-  return putle4(mat->ap, (int32_t *)buffer, fpos(4), num);
+  return putle4(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(4), num);
 }

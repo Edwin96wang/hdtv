@@ -30,11 +30,29 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+
+
+// extern "C" int32_t gf2_get(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+// extern int32_t gf2_put(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+// extern void gf2_probe(MFILE *mat);
+// extern void gf2_init(MFILE *mat);
+// extern int32_t gf2_uninit(MFILE *mat);
+
+#pragma once
+
 #include "mfile.h"
 #include <stdint.h>
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
-extern int32_t gf2_get(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t gf2_get(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
 extern int32_t gf2_put(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
 extern void gf2_probe(MFILE *mat);
 extern void gf2_init(MFILE *mat);
 extern int32_t gf2_uninit(MFILE *mat);
+
+#ifdef __cplusplus
+}
+#endif

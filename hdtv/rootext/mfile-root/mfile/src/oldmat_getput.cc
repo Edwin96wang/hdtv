@@ -97,7 +97,7 @@ int32_t le4t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uin
   ndata = line + 1 - col;
   if (ndata < 0)
     ndata = 0;
-  if (ndata > num)
+  if (ndata > static_cast<int32_t>(num))
     ndata = num;
   nzero = num - ndata;
 
@@ -117,13 +117,13 @@ int32_t le4t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uin
   ndata = line + 1 - col;
   if (ndata < 0)
     ndata = 0;
-  if (ndata > num)
+  if (ndata > static_cast<int32_t>(num))
     ndata = num;
 
   if ((res = putle4(mat->ap, buffer, fpos_t(4), (unsigned)ndata)) < ndata)
     return res;
 
-  for (i = ndata; i < num; i++) {
+  for (i = ndata; i < static_cast<int32_t>(num); i++) {
     if (*(buffer + i) != 0)
       return i;
   }
@@ -139,7 +139,7 @@ int32_t le2t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uin
   ndata = line + 1 - col;
   if (ndata < 0)
     ndata = 0;
-  if (ndata > num)
+  if (ndata > static_cast<int32_t>(num))
     ndata = num;
   nzero = num - ndata;
 
@@ -159,13 +159,13 @@ int32_t le2t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uin
   ndata = line + 1 - col;
   if (ndata < 0)
     ndata = 0;
-  if (ndata > num)
+  if (ndata > static_cast<int32_t>(num))
     ndata = num;
 
   if ((res = putle2(mat->ap, buffer, fpos_t(2), (unsigned)ndata)) < ndata)
     return res;
 
-  for (i = ndata; i < num; i++) {
+  for (i = ndata; i < static_cast<int32_t>(num); i++) {
     if (*(buffer + i) != 0)
       return i;
   }
@@ -181,7 +181,7 @@ int32_t he4t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uin
   ndata = line + 1 - col;
   if (ndata < 0)
     ndata = 0;
-  if (ndata > num)
+  if (ndata > static_cast<int32_t>(num))
     ndata = num;
   nzero = num - ndata;
 
@@ -201,13 +201,13 @@ int32_t he4t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uin
   ndata = line + 1 - col;
   if (ndata < 0)
     ndata = 0;
-  if (ndata > num)
+  if (ndata > static_cast<int32_t>(num))
     ndata = num;
 
   if ((res = puthe4(mat->ap, buffer, fpos_t(4), (unsigned)ndata)) < ndata)
     return res;
 
-  for (i = ndata; i < num; i++) {
+  for (i = ndata; i < static_cast<int32_t>(num); i++) {
     if (*(buffer + i) != 0)
       return i;
   }
@@ -223,7 +223,7 @@ int32_t he2t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uin
   ndata = line + 1 - col;
   if (ndata < 0)
     ndata = 0;
-  if (ndata > num)
+  if (ndata > static_cast<int32_t>(num))
     ndata = num;
   nzero = num - ndata;
 
@@ -243,13 +243,13 @@ int32_t he2t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uin
   ndata = line + 1 - col;
   if (ndata < 0)
     ndata = 0;
-  if (ndata > num)
+  if (ndata > static_cast<int32_t>(num))
     ndata = num;
 
   if ((res = puthe2(mat->ap, buffer, fpos_t(2), (unsigned)ndata)) < ndata)
     return res;
 
-  for (i = ndata; i < num; i++) {
+  for (i = ndata; i < static_cast<int32_t>(num); i++) {
     if (*(buffer + i) != 0)
       return i;
   }
@@ -261,42 +261,42 @@ int32_t he2t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uin
 
 int32_t lf4_get(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num) {
 
-  return getle4(mat->ap, (int32_t *)buffer, fpos(4), num);
+  return getle4(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(4), num);
 }
 
 int32_t lf4_put(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num) {
 
-  return putle4(mat->ap, (int32_t *)buffer, fpos(4), num);
+  return putle4(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(4), num);
 }
 
 int32_t hf4_get(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num) {
 
-  return gethe4(mat->ap, (int32_t *)buffer, fpos(4), num);
+  return gethe4(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(4), num);
 }
 
 int32_t hf4_put(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num) {
 
-  return puthe4(mat->ap, (int32_t *)buffer, fpos(4), num);
+  return puthe4(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(4), num);
 }
 
 /*----------------------------------------------------------------------*/
 
 int32_t lf8_get(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num) {
 
-  return getle8(mat->ap, (int32_t *)buffer, fpos(8), num);
+  return getle8(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(8), num);
 }
 
 int32_t lf8_put(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num) {
 
-  return putle8(mat->ap, (int32_t *)buffer, fpos(8), num);
+  return putle8(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(8), num);
 }
 
 int32_t hf8_get(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num) {
 
-  return gethe8(mat->ap, (int32_t *)buffer, fpos(8), num);
+  return gethe8(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(8), num);
 }
 
 int32_t hf8_put(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num) {
 
-  return puthe8(mat->ap, (int32_t *)buffer, fpos(8), num);
+  return puthe8(mat->ap, reinterpret_cast<int32_t *>(buffer), fpos(8), num);
 }

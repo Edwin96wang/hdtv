@@ -59,7 +59,7 @@ static void verifycompr(lc_minfo *lci, int32_t *line, int32_t num) {
     uint32_t c;
     for (c = 0; c < num; c++) {
       if (uncline[c] != line[c]) {
-        fprintf(stderr, "\ncompression error, aborting !!!\ncol = %d,  %d (correct %d)\n", c, uncline[c], line[c]);
+        fprintf(stderr, "\ncompression error, aborting !!!\ncol = %u,  %d (correct %d)\n", c, uncline[c], line[c]);
         abort();
       }
     }

@@ -101,7 +101,7 @@ class App:
         os.environ["HDTV_USER_PATH"] = str(self.configpath)
         sys.path.append(str(self.configpath))
         sys.path.append(str(self.configpath / "plugins"))
-
+        
         args = self.parse_args(hdtv_args)
 
         if args.rebuildusr is not None:
@@ -152,7 +152,6 @@ class App:
         import hdtv.plugins.printing
 
         hdtv.ui.msg("HDTV - Nuclear Spectrum Analysis Tool")
-
         # Execute startup.py for user configuration in python
         try:
             import startup

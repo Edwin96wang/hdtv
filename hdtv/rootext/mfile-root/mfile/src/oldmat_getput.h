@@ -27,34 +27,43 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#pragma once
 #include "mfile.h"
 #include <stdint.h>
 
-extern int32_t le4_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t le4_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t le2_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t le2_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t he4_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t he4_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t he2_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t he2_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t le2s_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t he2s_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+int32_t le4_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t le4_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t le2_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t le2_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t he4_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t he4_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t he2_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t he2_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t le2s_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t he2s_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
 
-extern int32_t le4t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t le4t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t le2t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t le2t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t he4t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t he4t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t he2t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t he2t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t le4t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t le4t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t le2t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t le2t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t he4t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t he4t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t he2t_get(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t he2t_put(MFILE *mat, int32_t *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
 
-extern int32_t lf4_get(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t lf4_put(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t hf4_get(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t hf4_put(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t lf8_get(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t lf8_put(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t hf8_get(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
-extern int32_t hf8_put(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t lf4_get(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t lf4_put(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t hf4_get(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t hf4_put(MFILE *mat, float *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t lf8_get(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t lf8_put(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t hf8_get(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+int32_t hf8_put(MFILE *mat, double *buffer, uint32_t level, uint32_t line, uint32_t col, uint32_t num);
+
+#ifdef __cplusplus
+}
+#endif

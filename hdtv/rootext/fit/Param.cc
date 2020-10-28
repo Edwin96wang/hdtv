@@ -41,7 +41,13 @@ double Param::Value(TF1 *func) const {
 double Param::Error(TF1 *func) const {
   // Fixed parameters do not have a fit error
   if (fFree) {
-    return func ? func->GetParError(fId) : std::numeric_limits<double>::quiet_NaN();
+    if(func){
+      return (func->GetParError(fId) > func->GetParameter(fId)/1e12) ?
+              func->GetParError(fId):0.0;
+    }
+    else{
+      return std::numeric_limits<double>::quiet_NaN();
+    }
   } else {
     return 0.0;
   }
